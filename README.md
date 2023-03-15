@@ -13,7 +13,7 @@ In this work, we present an approach for medical image arbitrary-scale super-res
 ![](./figures/OAS1_0003_MR1_slice_60.png)
 [BraTS](https://www.med.upenn.edu/cbica/brats2020/data.html)
 ![](./figures/BraTS_example.png)
-[ACDC](https://www.creatis.insa-lyon.fr/Challenge/acdc/databases.html) and COVID-CT
+[ACDC](https://www.creatis.insa-lyon.fr/Challenge/acdc/databases.html) and [COVID-CT](https://covid-segmentation.grand-challenge.org/Data/)
 ![](./figures/acdc_covid_example.png)
 
 ### Comparing with SOTA methods (PSNR + FID)
@@ -29,16 +29,25 @@ pip install -r requirements.txt
 ```
 To train:
 ```bash
-python -W ignore train.py --config-file config_files/
+python -W ignore train.py --model-type meta_sr --config-file config_files/meta_sr_example.ini
 ```
 To test:
 ```bash
-python -W ignore test.py --config-file config_files/
+python -W ignore test.py --sr-scales multi --config-file config_files/testing_meta_sr_example.ini
 ```
+To compare with SOTA SR methods, such as [EDSR](https://arxiv.org/abs/1707.02921), we also provide:
+```bash
+python -W ignore train.py --model-type sota_sr --config-file config_files/sota_sr_example.ini
+```
+To test:
+```bash
+python -W ignore test.py --sr-scales multi --config-file config_files/testing_sota_sr_example.ini
+```
+Notice that multi pre-trained models are required for specific-scale methods.
 
 ## Pre-trained models
 Here we provide pre-trained models to download (on the OASIS dataset):
-
+- [MIASSR]()
 
 ## Publications & citations
 This work is available at [IJNS](https://www.worldscientific.com/doi/10.1142/S0129065721500374), please cite as:

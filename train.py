@@ -10,7 +10,7 @@ import argparse
 
 """
 Example:
-    python -W ignore train.py --model-type sota_sr --config-file config_files/colab_sota_sr_example.ini
+    python -W ignore train.py --model-type sota_sr --config-file config_files/sota_sr_example.ini
 """
 
 
